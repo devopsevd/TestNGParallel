@@ -19,13 +19,13 @@ public class TestBase {
     @Parameters(value={"browser"})
     public void setupTest (@Optional String browser) throws MalformedURLException {
         //Set & Get ThreadLocal Driver with Browser
-        //TLDriverFactory.setTLDriver(browser);
-        //wait = new WebDriverWait(TLDriverFactory.getTLDriver(), 15);
+        TLDriverFactory.setTLDriver(browser);
+        wait = new WebDriverWait(TLDriverFactory.getTLDriver(), 15);
     }
 
     @AfterMethod
     public synchronized void tearDown() throws Exception {
-        //TLDriverFactory.getTLDriver().quit();
+        TLDriverFactory.getTLDriver().quit();
     }
 
 }
